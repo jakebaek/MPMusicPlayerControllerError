@@ -35,6 +35,6 @@
 
 - (void)setMPMusicPlayerControllerPlaybackStateDidChangeNotification;
 - (void)removeMPMusicPlayerControllerPlaybackStateDidChangeNotification;
-- (void)handlePlaybackStateChanged:(id)notification ;
+- (void)handlePlaybackStateChanged:(id)notification;
 
 @end

@@ -60,15 +60,15 @@
 
 - (void)initAudioSession
 {
-	NSError *setCategoryError = nil;
-	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&setCategoryError];
-
-	if(setCategoryError) 
+    NSError *setCategoryError = nil;
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&setCategoryError];
+    if(setCategoryError) 
         NSLog(@"error AVAudioSession setCategory");
     
-	NSError *activationError = nil;
-	[[AVAudioSession sharedInstance] setActive:YES error:&activationError];
-	if(activationError) 
+    NSError *activationError = nil;
+    [[AVAudioSession sharedInstance] setActive:YES error:&activationError];
+    if(activationError)
         NSLog(@"error AVAudioSession setActive");
 }
 

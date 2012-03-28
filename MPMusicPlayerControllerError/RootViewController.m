@@ -23,8 +23,8 @@
     
     [self initSubviews];
     
-	self.ipodPlayer = [MPMusicPlayerController iPodMusicPlayer];
-	[self setMPMusicPlayerControllerPlaybackStateDidChangeNotification];
+    self.ipodPlayer = [MPMusicPlayerController iPodMusicPlayer];
+    [self setMPMusicPlayerControllerPlaybackStateDidChangeNotification];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -148,7 +148,7 @@
                            selector:@selector(handlePlaybackStateChanged:)
                                name:MPMusicPlayerControllerPlaybackStateDidChangeNotification 
                              object:self.ipodPlayer];
-	[self.ipodPlayer beginGeneratingPlaybackNotifications];    
+    [self.ipodPlayer beginGeneratingPlaybackNotifications];    
 }
 
 - (void)removeMPMusicPlayerControllerPlaybackStateDidChangeNotification
@@ -157,7 +157,7 @@
 	[notificationCenter removeObserver:self
                                   name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                 object:self.ipodPlayer];
-	[self.ipodPlayer endGeneratingPlaybackNotifications];
+    [self.ipodPlayer endGeneratingPlaybackNotifications];
 }
 
 - (void)handlePlaybackStateChanged:(id)notification 
