@@ -1,3 +1,7 @@
+# 테스트 환경
+1. Xcode v4.3.1 (4E1019)
+2. iPhone 3GS iOS v5.1 (9B176)
+
 # 정상 시나리오
 ##1 MPMusicPlayerControllerError 단독 실행
 1. 하단의 play 버튼을 누르면 test.mp3가 재생된다.
@@ -16,3 +20,8 @@
 5. play 버튼을 누르면 test.mp3가 재생되고 쌩뚱맞게 iPod 앱에서 일시정지 해놓은 음악이 재생됨
 6. 실제 코드상에서는 MPMusicPlayerControllerPlaybackStateDidChangeNotification 으로 playbackState의 변경을 감지하는데, 위 시나리오를 수행하면 MPMusicPlayerController 인스턴스의 playbackState값을 MPMusicPlaybackStatePlaying로 가져오고 있음 (실제로 iPod 앱의 음악은 일시정지인 상태임에도 불구하고)
 7. 한번에 재현이 안될수도 있으며, 이 때는 3번을 다시 시도하면 됨
+
+# 관련 링크
+* http://stackoverflow.com/questions/8854923/did-mpmusicplayercontroller-change-with-ios-5
+* https://devforums.apple.com/message/417780#417780
+* https://devforums.apple.com/message/560013#560013
