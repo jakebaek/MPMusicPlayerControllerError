@@ -6,7 +6,10 @@
 //  Copyright (c) 2012년 __MyCompanyName__. All rights reserved.
 //
 
+#import <AudioToolbox/AudioToolbox.h>
+
 #import "AppDelegate.h"
+#import "RootViewController.h"
 
 @implementation AppDelegate
 
@@ -15,9 +18,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    RootViewController *rootViewController = [[RootViewController alloc] init];
+    self.window.rootViewController = rootViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -41,11 +47,29 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [self initAudioSession];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Member Function
+
+- (void)initAudioSession
+{
+	NSError *setCategoryError = nil;
+	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&setCategoryError];
+
+	if(setCategoryError) 
+        NSLog(@"error AVAudioSession setCategory");
+    
+	NSError *activationError = nil;
+	[[AVAudioSession sharedInstance] setActive:YES error:&activationError];
+	if(activationError) 
+        NSLog(@"error AVAudioSession setActive");
 }
 
 @end

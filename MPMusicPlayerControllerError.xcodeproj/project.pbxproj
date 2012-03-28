@@ -13,6 +13,11 @@
 		5786FB8915229FD10026BF7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5786FB8715229FD10026BF7E /* InfoPlist.strings */; };
 		5786FB8B15229FD10026BF7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5786FB8A15229FD10026BF7E /* main.m */; };
 		5786FB8F15229FD10026BF7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5786FB8E15229FD10026BF7E /* AppDelegate.m */; };
+		5786FB971522A0B90026BF7E /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5786FB961522A0B90026BF7E /* RootViewController.m */; };
+		5786FB991522A2300026BF7E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786FB981522A2300026BF7E /* AVFoundation.framework */; };
+		5786FB9B1522A23C0026BF7E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786FB9A1522A23C0026BF7E /* MediaPlayer.framework */; };
+		5786FB9D1522A3510026BF7E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786FB9C1522A3510026BF7E /* AudioToolbox.framework */; };
+		5786FBA81522AB3B0026BF7E /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5786FBA71522AB3B0026BF7E /* test.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,12 @@
 		5786FB8C15229FD10026BF7E /* MPMusicPlayerControllerError-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MPMusicPlayerControllerError-Prefix.pch"; sourceTree = "<group>"; };
 		5786FB8D15229FD10026BF7E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5786FB8E15229FD10026BF7E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5786FB951522A0B90026BF7E /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		5786FB961522A0B90026BF7E /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		5786FB981522A2300026BF7E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5786FB9A1522A23C0026BF7E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5786FB9C1522A3510026BF7E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5786FBA71522AB3B0026BF7E /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = test.mp3; path = Resources/Sounds/test.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5786FB9D1522A3510026BF7E /* AudioToolbox.framework in Frameworks */,
+				5786FB9B1522A23C0026BF7E /* MediaPlayer.framework in Frameworks */,
+				5786FB991522A2300026BF7E /* AVFoundation.framework in Frameworks */,
 				5786FB7F15229FD10026BF7E /* UIKit.framework in Frameworks */,
 				5786FB8115229FD10026BF7E /* Foundation.framework in Frameworks */,
 				5786FB8315229FD10026BF7E /* CoreGraphics.framework in Frameworks */,
@@ -62,9 +76,12 @@
 		5786FB7D15229FD10026BF7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5786FB9C1522A3510026BF7E /* AudioToolbox.framework */,
 				5786FB7E15229FD10026BF7E /* UIKit.framework */,
 				5786FB8015229FD10026BF7E /* Foundation.framework */,
 				5786FB8215229FD10026BF7E /* CoreGraphics.framework */,
+				5786FB9A1522A23C0026BF7E /* MediaPlayer.framework */,
+				5786FB981522A2300026BF7E /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -74,6 +91,9 @@
 			children = (
 				5786FB8D15229FD10026BF7E /* AppDelegate.h */,
 				5786FB8E15229FD10026BF7E /* AppDelegate.m */,
+				5786FB951522A0B90026BF7E /* RootViewController.h */,
+				5786FB961522A0B90026BF7E /* RootViewController.m */,
+				5786FBA51522AB1E0026BF7E /* Resources */,
 				5786FB8515229FD10026BF7E /* Supporting Files */,
 			);
 			path = MPMusicPlayerControllerError;
@@ -88,6 +108,22 @@
 				5786FB8C15229FD10026BF7E /* MPMusicPlayerControllerError-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5786FBA51522AB1E0026BF7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5786FBA61522AB2B0026BF7E /* Sounds */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5786FBA61522AB2B0026BF7E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5786FBA71522AB3B0026BF7E /* test.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5786FB8915229FD10026BF7E /* InfoPlist.strings in Resources */,
+				5786FBA81522AB3B0026BF7E /* test.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +190,7 @@
 			files = (
 				5786FB8B15229FD10026BF7E /* main.m in Sources */,
 				5786FB8F15229FD10026BF7E /* AppDelegate.m in Sources */,
+				5786FB971522A0B90026BF7E /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
