@@ -1,0 +1,29 @@
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.xcodeproj/xcuserdata/*
+*.xcodeproj/project.xcworkspace/xcuserdata/*
+project.xcworkspace
+
+# betabuilder Rakefile
+build.output
+pkg/*
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+
+*.swp
+*~.nib
+
+*.perspective
+*.perspectivev3
+
+Documentation/Generated
+doxygenWarnings.txt
+
