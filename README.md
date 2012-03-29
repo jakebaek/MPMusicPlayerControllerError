@@ -25,3 +25,9 @@
 * http://stackoverflow.com/questions/8854923/did-mpmusicplayercontroller-change-with-ios-5
 * https://devforums.apple.com/message/417780#417780
 * https://devforums.apple.com/message/560013#560013
+
+# v1.1
+* 특정 재현 스텝에서 MPMusicPlayerController의 playbackState 값이 틀린 것은 iOS 5.x 버그인 것 같음.
+* AVAudioSession으로 다른 음악이 재생중인지 판별하는 루틴 추가.
+* (타 앱 음악 재생 && MPMusicPlayerController.MPMusicPlaybackStatePlaying) 일 때만, 진짜 MPMusicPlayerController가 재생중이라고 판단.
+
