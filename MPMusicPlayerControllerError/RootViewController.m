@@ -145,8 +145,8 @@
 
 - (void)setMPMusicPlayerControllerPlaybackStateDidChangeNotification
 {
-	NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-	[notificationCenter addObserver:self 
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver:self 
                            selector:@selector(handlePlaybackStateChanged:)
                                name:MPMusicPlayerControllerPlaybackStateDidChangeNotification 
                              object:self.ipodPlayer];
@@ -155,8 +155,8 @@
 
 - (void)removeMPMusicPlayerControllerPlaybackStateDidChangeNotification
 {
-	NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-	[notificationCenter removeObserver:self
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter removeObserver:self
                                   name:MPMusicPlayerControllerPlaybackStateDidChangeNotification
                                 object:self.ipodPlayer];
     [self.ipodPlayer endGeneratingPlaybackNotifications];
@@ -164,11 +164,11 @@
 
 - (void)handlePlaybackStateChanged:(id)notification 
 {
-	static NSString * const stateKey = @"MPMusicPlayerControllerPlaybackStateKey";
-	NSNumber *number = [[notification userInfo] objectForKey:stateKey];
-	MPMusicPlaybackState playbackState = [number integerValue];    
+    static NSString * const stateKey = @"MPMusicPlayerControllerPlaybackStateKey";
+    NSNumber *number = [[notification userInfo] objectForKey:stateKey];
+    MPMusicPlaybackState playbackState = [number integerValue];    
     
-	MPMusicRepeatMode repeatMode = self.ipodPlayer.repeatMode;
+    MPMusicRepeatMode repeatMode = self.ipodPlayer.repeatMode;
     
     if(playbackState == MPMusicPlaybackStatePlaying)
     {
@@ -178,8 +178,8 @@
     {
         self.ipodMusicPlaying = NO;
     }
-
-	NSLog(@"playbackState = [%d], repeatMode = [%d], ipodMusicPlaying = [%d]", playbackState, repeatMode, self.ipodMusicPlaying);
+    
+    NSLog(@"playbackState = [%d], repeatMode = [%d], ipodMusicPlaying = [%d]", playbackState, repeatMode, self.ipodMusicPlaying);
 }
 
 @end
