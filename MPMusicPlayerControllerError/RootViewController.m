@@ -6,6 +6,7 @@
 //  Copyright (c) 2012년 __MyCompanyName__. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "RootViewController.h"
 
 #define RESOURCEPATH    [[NSBundle mainBundle] resourcePath]
@@ -74,7 +75,8 @@
 
 - (void)onTouchedPlayButton:(id)sender
 {
-    if(self.ipodMusicPlaying)
+    AppDelegate *app = MY_APPDELEGATE;
+    if(app.otherAudioIsPlaying && self.ipodMusicPlaying)
     {
         [self.ipodPlayer pause];
         self.needResumeIpodMusicPlay = YES;
@@ -168,15 +170,15 @@
     
 	MPMusicRepeatMode repeatMode = self.ipodPlayer.repeatMode;
     
-	if (playbackState == MPMusicPlaybackStatePlaying) 
-	{
-		self.ipodMusicPlaying = YES;
-	}
-	else 
-	{
-		self.ipodMusicPlaying = NO;   
-	}
-    
+    if(playbackState == MPMusicPlaybackStatePlaying)
+    {
+        self.ipodMusicPlaying = YES;
+    }
+    else 
+    {
+        self.ipodMusicPlaying = NO;
+    }
+
 	NSLog(@"playbackState = [%d], repeatMode = [%d], ipodMusicPlaying = [%d]", playbackState, repeatMode, self.ipodMusicPlaying);
 }
 

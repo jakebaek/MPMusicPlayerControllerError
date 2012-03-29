@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#define MY_APPDELEGATE (AppDelegate*)[[UIApplication sharedApplication] delegate]
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    BOOL _otherAudioIsPlaying;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, assign) BOOL otherAudioIsPlaying;
 
 - (void)initAudioSession;
+- (void)checkOtherAudioIsPlaying;
 
 @end

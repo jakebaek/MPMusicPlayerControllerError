@@ -14,6 +14,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize otherAudioIsPlaying = _otherAudioIsPlaying;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,6 +24,8 @@
     self.window.rootViewController = rootViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [self initAudioSession];
     
     return YES;
 }
@@ -48,7 +51,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    [self initAudioSession];
+    [self checkOtherAudioIsPlaying];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -60,16 +63,29 @@
 
 - (void)initAudioSession
 {
-    NSError *setCategoryError = nil;
+    AudioSessionInitialize(NULL, NULL, NULL, NULL);
     
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&setCategoryError];
-    if(setCategoryError) 
-        NSLog(@"error AVAudioSession setCategory");
+    UInt32 sessionCategory = kAudioSessionCategory_AmbientSound;
+    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
     
-    NSError *activationError = nil;
-    [[AVAudioSession sharedInstance] setActive:YES error:&activationError];
-    if(activationError)
-        NSLog(@"error AVAudioSession setActive");
+    AudioSessionSetActive(true);
 }
 
+- (void)checkOtherAudioIsPlaying
+{
+    UInt32 otherAudioIsPlaying;
+    UInt32 propertySize = sizeof(otherAudioIsPlaying);
+    
+    AudioSessionGetProperty(kAudioSessionProperty_OtherAudioIsPlaying, &propertySize, &otherAudioIsPlaying);
+    if(otherAudioIsPlaying) 
+    {
+        self.otherAudioIsPlaying = YES;
+    }
+    else 
+    {
+        self.otherAudioIsPlaying = NO;
+    }
+    
+    NSLog(@"otherAudioIsPlaying = [%@]", self.otherAudioIsPlaying ? @"YES" : @"NO");
+}
 @end
